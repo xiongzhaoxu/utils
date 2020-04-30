@@ -3,10 +3,10 @@
   <groupId>com.sinry</groupId>
   <artifactId>utils</artifactId>
   <versioning>
-    <release>1.0.10-RELEASE</release>
+    <release>1.0.9-RELEASE</release>
     <versions>
-      <version>1.0.10-RELEASE</version>
+      <version>1.0.9-RELEASE</version>
     </versions>
-    <lastUpdated>20200430082107</lastUpdated>
+    <lastUpdated>20200430075814</lastUpdated>
   </versioning>
 </metadata>
