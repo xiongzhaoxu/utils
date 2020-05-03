@@ -66,7 +66,7 @@ public class BaseFilter extends GenericFilterBean {
     @Override
     public void destroy() {
         super.destroy();
-        log.info("----- 清除MDC -----");
+        log.info("----- clean MDC -----");
         MDC.clear();
     }
 }

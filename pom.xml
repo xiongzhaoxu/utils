@@ -6,7 +6,7 @@
 
     <groupId>com.oozol</groupId>
     <artifactId>utils</artifactId>
-    <version>1.0.0-RELEASE</version>
+    <version>1.0.1-RELEASE</version>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -183,7 +183,7 @@
     </dependencies>
 
     <build>
-        <!--<pluginManagement>-->
+        <pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -243,6 +243,20 @@
                     <!--</execution>-->
                 <!--</executions>-->
             <!--</plugin>-->
+            <!--gpg插件,文件传输加密,deploy时会用上-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <!--Nexus Staging Maven插件是将组件部署到OSSRH并将其发布到Central Repository的推荐方法-->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
@@ -263,7 +277,14 @@
             </plugin>
             <!-- 发布Jar到Maven仓库 End -->
         </plugins>
-        <!--</pluginManagement>-->
+        </pluginManagement>
     </build>
-
+    <!--
+        //发布
+        mvn clean deploy -P release -Dgpg.passphrase=（密钥）
+        //查询密钥
+        gpg - -list-keys
+        //提交签名
+        gpg - -keyserver hkp://keyserver.ubuntu.com:11371 - -send-keys （key）
+     -->
 </project>
