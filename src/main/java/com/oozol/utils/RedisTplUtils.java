@@ -26,7 +26,6 @@ public class RedisTplUtils {
     /**
      * @param function
      * @param <R>
-     * @return
      */
     public static <R> R ops(Function<RedisTemplate<Object, Object>, R> function) {
         return function.apply(redisTemplate);
@@ -46,11 +45,11 @@ public class RedisTplUtils {
             }
         }
     }
+
     /**
      * 是否存在key
-     *
      * @param key
-     * @return
+     * @return boolean
      */
     public static boolean hasKey(Object key) {
         return redisTemplate.hasKey(key);

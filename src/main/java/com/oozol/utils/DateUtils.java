@@ -217,7 +217,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
     /**
      * 日期转为时间戳
      * @param s
-     * @return
      */
     public static Long dateToStamp(String s){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -239,7 +238,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
     /**
      * 时间戳转字符串日期
      * @param s
-     * @return
      */
     public static String stampToDateStr(Long s){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

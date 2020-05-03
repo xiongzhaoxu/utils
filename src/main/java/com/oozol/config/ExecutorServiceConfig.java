@@ -8,10 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @Classname:
- * @Description:
- * @Date: 2019-05-30 18:04
- * @Author: Allen Lei
+ * ExecutorServiceConfig
  */
 @Configuration
 @Component

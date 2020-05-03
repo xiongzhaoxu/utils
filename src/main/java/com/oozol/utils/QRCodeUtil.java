@@ -20,7 +20,6 @@ import java.util.Hashtable;
  * 二维码工具
  *
  * @author ：Sinr
- * @date ：Created in 2019-03-26 12:34
  */
 @Data
 @AllArgsConstructor

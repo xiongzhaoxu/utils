@@ -9,9 +9,6 @@ import java.util.regex.Pattern;
 
 /**
  * 电话号码验证
- *
- * @author ：Sinry
- * @date ：Created in 2019-04-22 15:30
  */
 public class PhoneValidator implements ConstraintValidator<Phone, Object> {
     private static Pattern PHONE_PATTERN = Pattern.compile("^(\\d{11}|0{2}\\d{11})$");

@@ -3,28 +3,29 @@ package com.oozol.utils;
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
- 
+
 /**
- * @Author : JCccc
- * @CreateTime : 2018-11-23
- * @Description :
- * @Point: Keep a good mood
- **/
+ * @author ：xiongzhaoxu
+ */
 public class IpUtil {
+    private static final String UNKNOWN = "unknown";
+    private static final String LOCALHOST = "127.0.0.1";
+    private static final String SEPARATOR = ",";
+
     public static String getIpAddr(HttpServletRequest request) {
-        String ipAddress = null;
+        //System.out.println(request);
+        String ipAddress;
         try {
             ipAddress = request.getHeader("x-forwarded-for");
-            if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            if (ipAddress == null || ipAddress.length() == 0 || UNKNOWN.equalsIgnoreCase(ipAddress)) {
                 ipAddress = request.getHeader("Proxy-Client-IP");
             }
-            if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            if (ipAddress == null || ipAddress.length() == 0 || UNKNOWN.equalsIgnoreCase(ipAddress)) {
                 ipAddress = request.getHeader("WL-Proxy-Client-IP");
             }
-            if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            if (ipAddress == null || ipAddress.length() == 0 || UNKNOWN.equalsIgnoreCase(ipAddress)) {
                 ipAddress = request.getRemoteAddr();
-                if (ipAddress.equals("127.0.0.1")) {
-                    // 根据网卡取本机配置的IP
+                if (LOCALHOST.equals(ipAddress)) {
                     InetAddress inet = null;
                     try {
                         inet = InetAddress.getLocalHost();
@@ -35,17 +36,15 @@ public class IpUtil {
                 }
             }
             // 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割
-            if (ipAddress != null && ipAddress.length() > 15) { // "***.***.***.***".length()
-                // = 15
-                if (ipAddress.indexOf(",") > 0) {
+            // "***.***.***.***".length()
+            if (ipAddress != null && ipAddress.length() > 15) {
+                if (ipAddress.indexOf(SEPARATOR) > 0) {
                     ipAddress = ipAddress.substring(0, ipAddress.indexOf(","));
                 }
             }
         } catch (Exception e) {
-            ipAddress="";
+            ipAddress = "";
         }
-        // ipAddress = this.getRequest().getRemoteAddr();
- 
         return ipAddress;
     }
 }

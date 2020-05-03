@@ -24,8 +24,6 @@ import static org.springframework.beans.BeanUtils.getPropertyDescriptors;
 
 /**
  * @version v1.0
- * @CreationTime: - 2019/3/11 6:43 PM
- * @Description:
  */
 @Slf4j
 public class BeansUtils {
@@ -189,9 +187,8 @@ public class BeansUtils {
      * 封装功能
      * List集合存储着一系列的MAP
      * 对象，obj为一个javaBean
-     * @param list Map集合
-     * @param clz javaBean对象
-     * @return
+     * list Map集合
+     * clz javaBean对象
      */
     public static <T> List<T> map2Obj(List list, Class<T> clz) {
         String jsonStr = JSON.toJSONString(list);
@@ -303,7 +300,6 @@ public class BeansUtils {
      * 功能：将一个以2的整数次方为和加在一起的一个整数进行分拆，分拆成一个个2的整数次方形式
      *
      * @param n 要拆分的数
-     * @return
      */
     public static List<Long> splitPower(Long n) {
         List<Long> list = new ArrayList<Long>();
@@ -327,7 +323,6 @@ public class BeansUtils {
      * 字符串转字符串集合
      *
      * @param str
-     * @return
      */
     public static List<String> strToList(String str) {
         List<String> strList = new ArrayList<>();

@@ -10,10 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @Classname:
- * @Description:
- * @Date: 2019-05-27 16:47
- * @Author: Allen Lei
+ * WebConfig
  */
 //@Configuration
 public class WebConfig implements WebMvcConfigurer {

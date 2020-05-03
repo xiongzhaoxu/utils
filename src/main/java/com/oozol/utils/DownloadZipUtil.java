@@ -17,10 +17,9 @@ public class DownloadZipUtil {
     /**
      * FileUtils下载网络文件
      *
-     * @param serverUrl   ：网络文件地址
-     * @param savePath：本地保存路径
+     * @param serverUrl ：网络文件地址
+     * @param savePath ：本地保存路径
      * @param zipSavePath ：压缩文件保存路径
-     * @return
      */
     public static String downloadFile(String serverUrl, String savePath, String zipSavePath) throws Exception {
         String result;

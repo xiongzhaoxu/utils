@@ -9,8 +9,6 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * 校验正整数
  *
- * @author ：Sinry
- * @date ：Created in 2019-04-21 16:37
  */
 public class PositiveIntValidator implements ConstraintValidator<PositiveInt, Object> {
     @Override

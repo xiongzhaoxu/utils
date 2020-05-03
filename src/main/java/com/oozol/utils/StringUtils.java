@@ -72,7 +72,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      *
      * @param text 字符串
      * @param tag  要去掉的字符串
-     * @return
+     * @return text
      */
     public static String trimEnd(String text, String tag) {
         if (isNullOrEmpty(text)) {
@@ -247,7 +247,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /**
      * 下划线转驼峰
      * @param str
-     * @return
+     * @return text
      */
     public static StringBuffer camel(StringBuffer str) {
         //利用正则删除下划线，把下划线后一位改成大写
@@ -271,7 +271,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     /**
      * 驼峰转下划线
      * @param str
-     * @return
+     * @return text
      */
     public static StringBuffer underline(StringBuffer str) {
         Pattern pattern = compile("[A-Z]");
@@ -295,7 +295,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * 设置缓存过期时间随机数
      * @param origin
      * @param bound
-     * @return
+     * @return text
      */
     public static Long generateRandomCacheTime(Long origin, Long bound) {
         if (origin.equals(bound)) {
@@ -309,7 +309,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * 字符串转集合
      *
      * @param str
-     * @return
+     * @return text
      */
     public static List<String> stringToList(String str){
         if (str == null) {

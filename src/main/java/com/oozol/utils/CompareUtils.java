@@ -16,15 +16,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * @Classname:
- * @Description:
+ * CompareUtils
  */
 @Slf4j
 public class CompareUtils {
     /**
      * 将要比较的字段<"字段描述":"字段值">放入到Map中；
      * @param obj
-     * @return
      */
     public static Map<String,String> setValueToMap(@NotNull Object obj){
         Map<String,String> iMap = Maps.newHashMap();
@@ -78,7 +76,6 @@ public class CompareUtils {
      * 比较对象属性值
      * @param newMap
      * @param oldMap
-     * @return
      */
     public static String mapDiff(Map<String,String> newMap,Map<String,String> oldMap){
         if(newMap==null||oldMap==null){
