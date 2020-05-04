@@ -2,14 +2,9 @@
 
 pom.xml
 ```xml
-
-    <repositories>
-        <repository>
-            <id>sinry-maven-repo</id>
-            <url>https://raw.githubusercontent.com/isinry/maven/master/repository/</url>
-        </repository>
-    </repositories>
+<dependency>
+  <groupId>com.oozol</groupId>
+  <artifactId>utils</artifactId>
+  <version>1.1.2-RELEASE</version>
+</dependency>
 ```
-
-> https://raw.githubusercontent.com/ 该地址如有打不开则需要配置host
-> 参考：[https://www.ioiox.com/archives/62.html](https://www.ioiox.com/archives/62.html)

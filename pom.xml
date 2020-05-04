@@ -6,51 +6,15 @@
 
     <groupId>com.oozol</groupId>
     <artifactId>utils</artifactId>
-    <version>1.0.1-RELEASE</version>
+    <version>1.1.2-RELEASE</version>
+    <packaging>jar</packaging>
+    <name>utils</name>
+    <description>Java utils</description>
+    <url>https://github.com/xiongzhaoxu/utils</url>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <scm>
-        <url>https://github.com/xiongzhaoxu/utils</url>
-        <connection>https://github.com/xiongzhaoxu/utils.git</connection>
-        <developerConnection>https://github.com/xiongzhaoxu/utils</developerConnection>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>xiongzhaoxu</name>
-            <email>xiongxu74110@163.com</email>
-            <url>https://github.com/xiongzhaoxu/utils</url>
-            <timezone>+8</timezone>
-        </developer>
-    </developers>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>alimaven</id>
-            <name>aliyun maven</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -87,7 +51,7 @@
         <dependency>
             <groupId>com.nimbusds</groupId>
             <artifactId>nimbus-jose-jwt</artifactId>
-            <version>5.4</version>
+            <version>7.9</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -182,15 +146,58 @@
 
     </dependencies>
 
+    <!--licenses信息-->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <!--scm信息-->
+    <scm>
+        <url>https://github.com/xiongzhaoxu/utils</url>
+        <connection>scm:git:https://github.com/xiongzhaoxu/utils.git</connection>
+        <developerConnection>scm:git:git@github.com/xiongzhaoxu/utils</developerConnection>
+    </scm>
+    <!--发布者信息-->
+    <developers>
+        <developer>
+            <name>xiongzhaoxu</name>
+            <email>xiongxu74110@163.com</email>
+            <organization>xiongzhaoxu</organization>
+            <organizationUrl>https://github.com/xiongzhaoxu/utils</organizationUrl>
+        </developer>
+    </developers>
+    <!--distributionManagement信息-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
     <build>
-        <pluginManagement>
+        <!--<pluginManagement>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <!-- 发布Jar到Maven仓库 Begin -->
@@ -226,30 +233,13 @@
                 </executions>
             </plugin>
             <!--Maven GPG插件用于使用以下配置对组件进行签名-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-gpg-plugin</artifactId>-->
-                <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<skip>true</skip>&ndash;&gt;-->
-                <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
-                <!--<version>1.5</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>sign-artifacts</id>-->
-                        <!--<phase>verify</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>sign</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <!--gpg插件,文件传输加密,deploy时会用上-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>1.5</version>
                 <executions>
                     <execution>
+                        <id>sign-artifacts</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>sign</goal>
@@ -257,6 +247,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--gpg插件,文件传输加密,deploy时会用上-->
             <!--Nexus Staging Maven插件是将组件部署到OSSRH并将其发布到Central Repository的推荐方法-->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
@@ -275,9 +266,9 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.4.2</version>
             </plugin>
-            <!-- 发布Jar到Maven仓库 End -->
+            <!--!&ndash; 发布Jar到Maven仓库 End -->
         </plugins>
-        </pluginManagement>
+        <!--</pluginManagement>-->
     </build>
     <!--
         //发布
